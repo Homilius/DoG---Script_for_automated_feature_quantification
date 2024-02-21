@@ -16,12 +16,17 @@ granules, through a straightforward thresholding process.
 ################################################################
 
 // # Script works by first subtracting background locally (Rolling ball + sliding paraboloid approach).
+
 // # Hereafter DoG (difference of gaussians) is performed to find regions of interest.
+
 // # These regions of interest (ROI's) are then measured (e.g. Area, Mean, ect.) on the original image and exported to a .csv file for each image. 
 
 // # To use the script you manually need to do following:
+
 // # Open FIJI -> press cmd+shift+n (to get script executer).
+
 // # Provide the path to the directory holding your .czi files (NOTE!!! NO spaces in dir_path or file_names (e.g. "/Users/antonhomilius/Desktop/U2OS images" must be "/Users/antonhomilius/Desktop/U2OS_images")).
+
 // # Adjust threshold, particle size and particle circularity (e.g. turn off "run("Close All");"  while finding the right settings (so you can sanity check output)). 
 
 // ############################################################
