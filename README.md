@@ -21,7 +21,9 @@ To use the script, follow these steps:
 ## Script Snippet
 
 ```javascript
-dir_path = dir_path+"/"
+
+dir_path = "/Full_path_to_dir_containing_images";
+dir_path = dir_path+"/" 
 
 // List all files in the directory:
 dir_path = "/Full_path_to_dir_containing_images";
