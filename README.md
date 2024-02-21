@@ -46,7 +46,6 @@ for (i=0; i<list.length; i++) {
         selectWindow("Original");
         run("Duplicate...", "title=clone");
         
-
         // Duplicate and adjust:
         selectWindow("clone");
         run("Subtract Background...", "rolling=10 sliding");
