@@ -22,11 +22,11 @@ To use the script, follow these steps:
 
 ```javascript
 
+// Provide path to image dir:
 dir_path = "/Full_path_to_dir_containing_images";
 dir_path = dir_path+"/" 
 
 // List all files in the directory:
-dir_path = "/Full_path_to_dir_containing_images";
 list = getFileList(dir_path);
 
 // Process each .czi file:
