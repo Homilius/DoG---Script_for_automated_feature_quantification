@@ -14,6 +14,7 @@ granules, through a straightforward thresholding process.
 
 
 ################################################################
+
 // # Script works by first subtracting background locally (Rolling ball + sliding paraboloid approach).
 // # Hereafter DoG (difference of gaussians) is performed to find regions of interest.
 // # These regions of interest (ROI's) are then measured (e.g. Area, Mean, ect.) on the original image and exported to a .csv file for each image. 
@@ -24,6 +25,7 @@ granules, through a straightforward thresholding process.
 // # Adjust threshold, particle size and particle circularity (e.g. turn off "run("Close All");"  while finding the right settings (so you can sanity check output)). 
 
 // ############################################################
+
 // # Define directory:
 dir_path = "/Full_path_to_dir_containing_images";
 dir_path = dir_path+"/"
