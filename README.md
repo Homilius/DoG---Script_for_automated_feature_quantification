@@ -15,7 +15,7 @@
 To use the script, follow these steps:
 
 1. **Prepare Your Environment:** Open FIJI and press `cmd+shift+n` to access the script executor.
-2. **Set Directory Path:** Provide the path to your directory containing .czi (or .tif) files. Ensure there are no spaces in `dir_path` or file names (e.g., use "/Users/yourname/Desktop/U2OS_images").
+2. **Set Directory Path:** Provide the path to your directory containing .czi (or .tif) files. Ensure there are no spaces in `dir_path` or file names (e.g., use "/Users/yourname/Desktop/U2OS_images" NOT "/Users/yourname/Desktop/U2OS images").
 3. **Adjust Settings:** Modify threshold, particle size, and circularity settings as needed. Disable `run("Close All");` during adjustment to sanity check the output.
 
 ## Script Snippet
