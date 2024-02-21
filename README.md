@@ -21,31 +21,56 @@ To use the script, follow these steps:
 ## Script Snippet
 
 ```javascript
-// Define directory:
-dir_path = "/Full_path_to_dir_containing_images";
-dir_path += "/";
+dir_path = dir_path+"/"
 
 // List all files in the directory:
+dir_path = "/Full_path_to_dir_containing_images";
 list = getFileList(dir_path);
 
 // Process each .czi file:
-for (i = 0; i < list.length; i++) {
+for (i=0; i<list.length; i++) {
     if (endsWith(list[i], ".czi")) {
-        // File preparation:
+        // Get prefix from file name:
         prefix = replace(list[i], ".czi", "");
         suffix = ".czi";
         file_name = prefix + suffix;
         full_path = dir_path + file_name;
 
-        // Open and adjust file:
+        // Open file:
         open(full_path);
-        // [Further steps for adjusting and processing the file]
+        run("Grays");
+        run("Enhance Contrast...", "saturated=0.20");
+        run("Duplicate...", "title=Original");
+        selectWindow("Original");
+        run("Duplicate...", "title=clone");
+        
 
-        // Perform DoG and define, measure particles:
-        // [Code to apply DoG, measure particles, and save data]
+        // Duplicate and adjust:
+        selectWindow("clone");
+        run("Subtract Background...", "rolling=10 sliding");
+        run("Duplicate...", "title=1");
+        selectWindow("clone");
+        run("Duplicate...", "title=2");
 
-        // Save data and close all windows:
+        // Perform DoG (difference of gaussians):
+        selectWindow(1); 
+        run("Gaussian Blur...", "sigma=1");
+        selectWindow(2); 
+        run("Gaussian Blur...", "sigma=2");
+        imageCalculator("Subtract create", "1", "2");
+
+        // Define and measure particles: 
+        selectWindow("Result of 1");
+        run("Gaussian Blur...", "sigma=1");
+        run("Enhance Contrast...", "saturated=0.20");
+        setAutoThreshold("Otsu dark");
+        //setThreshold(25, 100000, "raw");
+        run("Set Measurements...", "area mean perimeter fit shape feret's integrated median display" + " redirect=" + "Original" + " decimal=2");
+        run("Analyze Particles...", "size=0.3-20 circularity=0.3-1.0 show=Outlines display clear add");
+
+        // Save data:
         saveAs("Results", dir_path + prefix + "_RESULTS.csv");
+        // Close all windows:
         run("Close All");
     }
 }
