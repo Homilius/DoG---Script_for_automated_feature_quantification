@@ -32,13 +32,16 @@ granules, through a straightforward thresholding process.
 // ############################################################
 
 // # Define directory:
+
 dir_path = "/Full_path_to_dir_containing_images";
 dir_path = dir_path+"/"
 
 // # List all files in the directory:
+
 list = getFileList(dir_path);
 
 // # Process each .czi file:
+
 for (i=0; i<list.length; i++) {
     if (endsWith(list[i], ".czi")) {
         // Get prefix from file name:
@@ -48,6 +51,7 @@ for (i=0; i<list.length; i++) {
         full_path = dir_path + file_name;
 
         // # Open file:
+        
         open(full_path);
         run("Grays");
         run("Enhance Contrast...", "saturated=0.20");
@@ -57,6 +61,7 @@ for (i=0; i<list.length; i++) {
         
 
         // # Duplicate and adjust:
+        
         selectWindow("clone");
         run("Subtract Background...", "rolling=10 sliding");
         run("Duplicate...", "title=1");
@@ -64,6 +69,7 @@ for (i=0; i<list.length; i++) {
         run("Duplicate...", "title=2");
 
         // # Perform DoG (difference of gaussians):
+        
         selectWindow(1); 
         run("Gaussian Blur...", "sigma=1");
         selectWindow(2); 
@@ -71,6 +77,7 @@ for (i=0; i<list.length; i++) {
         imageCalculator("Subtract create", "1", "2");
 
         // # Define and measure particles: 
+        
         selectWindow("Result of 1");
         run("Gaussian Blur...", "sigma=1");
         run("Enhance Contrast...", "saturated=0.20");
@@ -80,8 +87,11 @@ for (i=0; i<list.length; i++) {
         run("Analyze Particles...", "size=0.3-20 circularity=0.3-1.0 show=Outlines display clear add");
 
         // # Save data:
+        
         saveAs("Results", dir_path + prefix + "_RESULTS.csv");
+        
         // # Close all windows:
+        
         run("Close All");
     }
 }
