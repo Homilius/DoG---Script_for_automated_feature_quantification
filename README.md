@@ -1,18 +1,18 @@
 # DoG---Script_for_automated_feature_quantification_from_image_data
-#
-#
-# An automated FIJI-script, based on the "Difference of Gaussians" (DoG) method, was developed for an unbiased 
-# identification and quantification of SG-related features within these images. 
-# Briefly, Gaussian blur works by replacing all pixel values by the weighted average of its neighbouring pixels. 
-# The original pixel's value receives the heaviest weight and neighbouring pixels receive progressively smaller weights 
-# as their distance from the original pixel increases. Consequently, pixels in areas between low and high pixel intensities
-# will receive a greater degree of blurring. Applying this filter to two identical images using two different sigma values
-# (standard deviation of the gaussian distribution), result in two images with different degree of blurring. Subtracting these 
-# two images results in an image predominantly composed of values corresponding to regions with steep intensity-change gradients, 
-# effectively removing everything else. This enables the efficient identification of high-signal cellular features, such as stress 
-# granules, through a straightforward thresholding process.
-#
-#
+
+
+An automated FIJI-script, based on the "Difference of Gaussians" (DoG) method, was developed for an unbiased 
+identification and quantification of SG-related features within these images. 
+Briefly, Gaussian blur works by replacing all pixel values by the weighted average of its neighbouring pixels. 
+The original pixel's value receives the heaviest weight and neighbouring pixels receive progressively smaller weights 
+as their distance from the original pixel increases. Consequently, pixels in areas between low and high pixel intensities
+will receive a greater degree of blurring. Applying this filter to two identical images using two different sigma values
+(standard deviation of the gaussian distribution), result in two images with different degree of blurring. Subtracting these 
+two images results in an image predominantly composed of values corresponding to regions with steep intensity-change gradients, 
+effectively removing everything else. This enables the efficient identification of high-signal cellular features, such as stress 
+granules, through a straightforward thresholding process.
+
+
 ################################################################
 // # Script works by first subtracting background locally (Rolling ball + sliding paraboloid approach).
 // # Hereafter DoG (difference of gaussians) is performed to find regions of interest.
