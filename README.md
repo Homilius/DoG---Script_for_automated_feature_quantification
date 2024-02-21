@@ -1,4 +1,4 @@
-# DoG---Script_for_automated_feature_quantification_from_image_data
+# "Automated DoG" - Script_for_automated_feature_quantification_from_image_data
 
 
 An automated FIJI-script, based on the "Difference of Gaussians" (DoG) method, was developed for an unbiased 
