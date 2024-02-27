@@ -2,7 +2,7 @@
 
 ## Introduction
 
-"Automated DoG" is an automated FIJI script leveraging the "Difference of Gaussians" (DoG) method for unbiased identification and quantification of high-signal features within images (e.g. immunofluorescence stainings of stress-granules or P-bodies). Gaussian blur replaces pixel values with the weighted average of neighboring pixels. This process, applied with two sigma values, highlights regions of steep intensity-change gradients, aiding in the efficient identification of high-signal cellular features like stress granules through thresholding.
+"Automated DoG" is an automated FIJI script leveraging the "Difference of Gaussians" (DoG) method for unbiased identification and quantification of high-signal features within images (e.g. immunofluorescence stainings of stress-granules or P-bodies). Gaussian blur replaces pixel values with the weighted average of neighboring pixels. This process, applied with two sigma values, highlights regions of steep intensity-change gradients, aiding in the efficient identification of high-signal cellular features like stress granules through straigth forward thresholding.
 
 ## How It Works
 
